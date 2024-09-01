@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App - Weather Application</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+
+    <div class="info">
+        <h2>About This Weather App</h2>
+        <p>Get current weather conditions for anywhere in the world.</p>
+        <p class="usage">How to Use:</p>
+        <ul>
+            <li>Enter a location name in the search box below.</li>
+            <li>Click the search button to get the weather forecast.</li>
+            <li>View the weather information relating to your entered location.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <div class="search">
+            <input type="text" placeholder="Enter Location Name" spellcheck="false">
+            <button><img src="images/search.png" alt="Search"></button>
+        </div>
+        <div class="error">
+            <p>Location Does Not Exist</p>
+        </div>
+        <div class="weather">
+            <img src="images/rain.png" class="weather-icon" alt="Weather Icon">
+            <h1 class="temp">°c</h1>
+            <h2 class="city">Place Name</h2>
+        </div>
+        <div class="details">
+            <div class="col">
+                <img src="images/humidity.png" alt="Humidity Icon">
+                <div>
+                    <p class="humidity">%</p>
+                    <p>Humidity</p>
+                </div>
+            </div>
+            <div class="col">
+                <img src="images/wind.png" alt="Wind Icon">
+                <div>
+                    <p class="wind"> km/h</p>
+                    <p>Wind Speed</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="meet-us">
+        <h2>Meet the Team</h2>
+        <div class="team">
+            <div class="teaminfo">
+                <img src="images/Smith.jpg" alt="Smith">
+                <h3>Smith</h3>
+            </div>
+            <div class="teaminfo">
+                <img src="images/Priscilla.jpg" alt="Priscilla">
+                <h3>Priscilla</h3>
+            </div>
+            <div class="teaminfo">
+                <img src="images/Precious.jpg" alt="Precious">
+                <h3>Precious</h3>
+            </div>
+        </div>
+
+    <script>
+        const apiKey = "b7c9744634e1eb8cdd4334835a4db934";
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
+        
+        const searchBox = document.querySelector(".search input");
+        const searchBtn = document.querySelector(".search button");
+        const weatherIcon = document.querySelector(".weather-icon");
+
+        async function checkWeather(city) {
+    const response = await fetch(apiUrl + city + '&appid=' + apiKey + '&units=metric');
+    const data = await response.json();
+    
+    if (response.status === 404) {
+        document.querySelector(".error").style.display = "block";
+        document.querySelector(".weather").style.display = "none";
+    } else {
+        document.querySelector(".error").style.display = "none";
+        document.querySelector(".weather").style.display = "block";
+        document.querySelector(".city").innerHTML = data.name;
+        document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°c";
+        document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+        document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
+
+        const temperature = Math.round(data.main.temp);
+
+        if (temperature > 30) {
+            weatherIcon.src = "images/clear.png";
+        } else if (temperature > 20 && temperature <= 30) {
+            weatherIcon.src = "images/clouds.png";
+        } else if (temperature > 10 && temperature <= 20) {
+            weatherIcon.src = "images/mist.png";
+        } else if (temperature > 0 && temperature <= 10) {
+            weatherIcon.src = "images/drizzle.png";
+        } else if (temperature > -10 && temperature <= 0) {
+            weatherIcon.src = "images/rain.png";
+        } else {
+            weatherIcon.src = "images/snow.png";
+        }
+    }
+}
+
+searchBtn.addEventListener("click", () => {
+    checkWeather(searchBox.value);
+});
+
+    </script>
+
+</body>
+</html>
