@@ -1,0 +1,214 @@
+body.landingpage {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(202, 211, 219);
+    background: linear-gradient(to right, rgb(44, 62, 80), rgb(74, 74, 74));
+}
+
+.info {
+    margin-top: 0;
+    text-align: center;
+    height: 100vh;
+    background-image: url("./images/backgroundimage.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.info h1 {
+    font-size: 40px;
+    text-align: left;
+    margin-top: 70px;
+}
+
+.description {
+    font-size: 25px;
+    width: 60%;
+    margin-bottom: 100px;
+    font-style: italic;
+    color: rgba(200, 200, 255, 0.788);
+    text-align: left;
+}
+
+.promo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, rgb(86, 146, 170), rgb(44, 62, 80));
+    padding: 50px;
+    color: white;
+    text-align: center;
+    margin: 50px 0;
+}
+
+.promo-content {
+    max-width: 50vw;
+}
+
+.promo h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.promo p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.promo-btn {
+    padding: 15px 30px;
+    background-color: white;
+    color: royalblue;
+    border-radius: 5px;
+    font-size: 18px;
+    text-decoration: none;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.promo-btn:hover {
+    background-color: royalblue;
+    color: white;
+}
+
+.promo-icons img {
+    width: 100px;
+    height: 100px;
+    margin: 0 20px;
+}
+
+
+
+.suggestions {
+    background: rgba(44, 62, 80, 0.8);
+    color: rgb(187, 187, 187);
+    text-align: center;
+    padding: 50px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.suggestions h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.suggestion-box {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.suggestion {
+    width: 30%;
+    text-align: center;
+    padding: 20px;
+}
+
+.suggestion img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.suggestion p {
+    font-size: 18px;
+}
+
+.meet-us, .newsletter {
+    background: none;
+}
+
+.meet-us {
+    background-color: rgba(44, 62, 80, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px auto;
+    width: 80%;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.meet-us h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: rgb(202, 211, 219);
+}
+
+.team {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.teaminfo {
+    text-align: center;
+    width: 30%;
+    margin: 10px;
+    color: aliceblue;
+}
+
+.teaminfo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.teaminfo h3 {
+    margin: 10px 0 0px;
+    font-size: 16px;
+}
+
+.teaminfo p {
+    font-size: 14px;
+}
+
+.newsletter {
+    background-color: rgba(44, 62, 80, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 40px;
+    width: 80%;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.newsletter h2 {
+    font-size: 28px;
+    color: rgb(202, 211, 219);
+    margin-bottom: 10px;
+}
+
+.newsletter p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: rgb(187, 187, 187);
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 60%;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.newsletter button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: rgb(18, 32, 75);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.newsletter button:hover {
+    background-color: rgb(202, 211, 219);
+    color: rgb(18, 32, 75);
+}

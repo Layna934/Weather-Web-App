@@ -3,24 +3,14 @@
 <head> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App - Weather Application</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="main.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
 </head>
-<body>
-
-    <div class="info">
-        <h2>About This Weather App</h2>
-        <p>Get current weather conditions for anywhere in the world.</p>
-        <p class="usage">How to Use:</p>
-        <ul>
-            <li>Enter a location name in the search box below.</li>
-            <li>Click the search button to get the weather forecast.</li>
-            <li>View the weather information relating to your entered location.</li>
-        </ul>
-    </div>
+<body class="weatherpage">
 
     <div class="card">
         <div class="search">
@@ -53,24 +43,18 @@
         </div>
     </div>
 
-    <hr>
 
-    <div class="meet-us">
-        <h2>Meet the Team</h2>
-        <div class="team">
-            <div class="teaminfo">
-                <img src="images/Smith.jpg" alt="Smith">
-                <h3>Smith</h3>
+    <div class="todo-section">
+        <h2>Make Informed Plans</h2>
+        <div class="todo-container">
+            <div class="input-container">
+                <input type="text" id="taskInput" placeholder="Add a task">
+                <button id="addTaskBtn">Add Task</button>
             </div>
-            <div class="teaminfo">
-                <img src="images/Priscilla.jpg" alt="Priscilla">
-                <h3>Priscilla</h3>
-            </div>
-            <div class="teaminfo">
-                <img src="images/Precious.jpg" alt="Precious">
-                <h3>Precious</h3>
-            </div>
+            <ul id="taskList"></ul>
         </div>
+    </div>
+
 
     <script>
         const apiKey = "b7c9744634e1eb8cdd4334835a4db934";
@@ -116,6 +100,73 @@
 searchBtn.addEventListener("click", () => {
     checkWeather(searchBox.value);
 });
+
+
+/*Todo Section*/
+document.getElementById('addTaskBtn').addEventListener('click', addTask);
+
+function addTask() {
+    const taskInput = document.getElementById('taskInput');
+    const taskText = taskInput.value.trim();
+
+    if (taskText !== "") {
+        const taskList = document.getElementById('taskList');
+
+        const li = document.createElement('li');
+        li.innerHTML = `
+            ${taskText}
+            <button class="remove-task">X</button>
+        `;
+        taskList.appendChild(li);
+
+        
+        taskInput.value = "";
+
+        
+        li.querySelector('.remove-task').addEventListener('click', function() {
+            li.remove();
+        });
+
+        
+        saveTasks();
+    }
+}
+
+
+function saveTasks() {
+    const taskList = document.getElementById('taskList');
+    const tasks = [];
+
+    taskList.querySelectorAll('li').forEach((li) => {
+        tasks.push(li.innerText.slice(0, -1));
+    });
+
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+
+function loadTasks() {
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    tasks.forEach(taskText => {
+        const taskList = document.getElementById('taskList');
+
+        const li = document.createElement('li');
+        li.innerHTML = `
+            ${taskText}
+            <button class="remove-task">X</button>
+        `;
+        taskList.appendChild(li);
+
+        li.querySelector('.remove-task').addEventListener('click', function() {
+            li.remove();
+            saveTasks();
+        });
+    });
+}
+
+
+loadTasks();
 
     </script>
 
