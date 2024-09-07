@@ -6,7 +6,7 @@ A program that uses open weather API to give current weather report of your loca
 HTML
 CSS
 JAVASCRIPT
-OPENWEATHERMAY (A cloud platform where the project was deployed).
+OPENWEATHERMAP
 
 
 <h1>Project Decription</h1>
