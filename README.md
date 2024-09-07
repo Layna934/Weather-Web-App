@@ -9,7 +9,7 @@ JAVASCRIPT
 OPENWEATHERMAY (A cloud platform where the project was deployed).
 
 
-Project Decription
+<h1>Project Decription</h1>
 
 The project description can be found in the Google Slide Link  
 https://docs.google.com/presentation/d/1SecRMGZT3iZkZ5OCsHy8Qif-Gtu7aNDbhs6hMHKWEnA/edit?usp=sharing
