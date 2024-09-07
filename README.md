@@ -1,7 +1,7 @@
 <h1>Weather Web Application</h1>
 A program that uses open weather API to give current weather report of your location
 
-Technologies Used
+<h1>Technologies Used</h1>
 
 HTML
 CSS
