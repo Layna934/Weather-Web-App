@@ -1,181 +1,214 @@
-body.weatherpage {
-    background: linear-gradient(to right, rgb(44, 62, 80), rgb(74, 74, 74));
+body.landingpage {
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    color: aliceblue;
+    color: rgb(202, 211, 219);
+    background: linear-gradient(to right, rgb(44, 62, 80), rgb(74, 74, 74));
 }
 
-.card {
-    background: rgb(51, 51, 51);
-    border-radius: 15px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
-    width: 25%;
-    height: auto;
-    padding:20px;
-    margin-top: 10vh;
+.info {
+    margin-top: 0;
     text-align: center;
+    height: 100vh;
+    background-image: url("./images/backgroundimage.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.search {
+.info h1 {
+    font-size: 40px;
+    text-align: left;
+    margin-top: 70px;
+}
+
+.description {
+    font-size: 25px;
+    width: 60%;
+    margin-bottom: 100px;
+    font-style: italic;
+    color: rgba(200, 200, 255, 0.788);
+    text-align: left;
+}
+
+.promo {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, rgb(86, 146, 170), rgb(44, 62, 80));
+    padding: 50px;
+    color: white;
+    text-align: center;
+    margin: 50px 0;
+}
+
+.promo-content {
+    max-width: 50vw;
+}
+
+.promo h2 {
+    font-size: 36px;
     margin-bottom: 20px;
 }
 
-.search input {
-    background-color: rgb(85, 85, 85);
-    padding: 10px;
-    border: 1px solid rgb(68, 68, 68);
-    border-radius: 10px 0 0 10px;
-    font-size: 16px;
+.promo p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.promo-btn {
+    padding: 15px 30px;
+    background-color: white;
+    color: royalblue;
+    border-radius: 5px;
+    font-size: 18px;
+    text-decoration: none;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.promo-btn:hover {
+    background-color: royalblue;
     color: white;
-    width: calc(100% - 40px);
 }
 
-.search button {
-    width: 40px;
-    background-color: rgb(85, 85, 85);
-    border: none;
-    border-radius: 0 10px 10px 0;
-}
-
-.search button img {
-    width: 15px;
-}
-
-.error {
-    color: red;
-    display: none;
-    margin-bottom: 15px;
-}
-
-.weather {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.weather-icon {
+.promo-icons img {
     width: 100px;
     height: 100px;
-    margin-bottom: auto;
+    margin: 0 20px;
 }
 
-.temp {
-    font-size: 48px;
-    color: aliceblue;
-    margin: 0, auto;
-}
 
-.city {
-    font-size: 30px;
+
+.suggestions {
+    background: rgba(44, 62, 80, 0.8);
     color: rgb(187, 187, 187);
-    margin-top: 0;
-    margin-bottom: 0;
+    text-align: center;
+    padding: 50px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.details {
+.suggestions h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.suggestion-box {
     display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-.col {
+.suggestion {
+    width: 30%;
+    text-align: center;
+    padding: 20px;
+}
+
+.suggestion img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.suggestion p {
+    font-size: 18px;
+}
+
+.meet-us, .newsletter {
+    background: none;
+}
+
+.meet-us {
+    background-color: rgba(44, 62, 80, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px auto;
+    width: 80%;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.meet-us h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: rgb(202, 211, 219);
+}
+
+.team {
     display: flex;
-    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-.col img {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
+.teaminfo {
+    text-align: center;
+    width: 30%;
+    margin: 10px;
+    color: aliceblue;
 }
 
-.humidity, .wind {
+.teaminfo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.teaminfo h3 {
+    margin: 10px 0 0px;
     font-size: 16px;
-    color: aliceblue;
 }
 
-.details p {
-    margin: 5px 0;
-    color: rgb(187, 187, 187);
+.teaminfo p {
     font-size: 14px;
 }
 
-
-.todo-section {
-    background-color: rgb(68, 68, 68);
+.newsletter {
+    background-color: rgba(44, 62, 80, 0.8);
     padding: 20px;
-    margin: 20px;
     border-radius: 10px;
-    width: 90%;
-    max-width: 600px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 40px;
+    width: 80%;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-.todo-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.input-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 15px;
-}
-
-#taskInput {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 70%;
-    background-color: rgb(52, 52, 52);
-}
-
-#addTaskBtn {
-    padding: 10px 20px;
-    margin-left: 10px;
-    font-size: 16px;
-    background-color: rgb(52, 52, 52);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#addTaskBtn:hover {
-    background-color: rgb(44, 62, 80);
-}
-
-#taskList {
-    list-style-type: none;
-    padding: 0;
-    width: 100%;
-}
-
-#taskList li {
-    background-color: rgb(52, 52, 52);
-    padding: 10px;
+.newsletter h2 {
+    font-size: 28px;
+    color: rgb(202, 211, 219);
     margin-bottom: 10px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
 }
 
-#taskList li .remove-task {
-    background-color: red;
-    color: rgb(44, 62, 80);
-    padding: 5px;
-    cursor: pointer;
+.newsletter p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: rgb(187, 187, 187);
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
+    width: 60%;
+    font-size: 16px;
+    margin-right: 10px;
 }
 
-#taskList li .remove-task:hover {
-    background-color: darkred;
+.newsletter button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: rgb(18, 32, 75);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.newsletter button:hover {
+    background-color: rgb(202, 211, 219);
+    color: rgb(18, 32, 75);
 }

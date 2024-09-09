@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App - Weather Application</title>
+    <link rel="stylesheet" href="weather.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<body class="weatherpage">
+
+    <div class="card">
+        <div class="search">
+            <input type="text" placeholder="Enter Location Name" spellcheck="false">
+            <button><img src="images/search.png" alt="Search"></button>
+        </div>
+        <div class="error">
+            <p>Location Does Not Exist</p>
+        </div>
+        <div class="weather">
+            <img src="images/rain.png" class="weather-icon" alt="Weather Icon">
+            <h1 class="temp">°c</h1>
+            <h2 class="city">Place Name</h2>
+        </div>
+        <div class="details">
+            <div class="col">
+                <img src="images/humidity.png" alt="Humidity Icon">
+                <div>
+                    <p class="humidity">%</p>
+                    <p>Humidity</p>
+                </div>
+            </div>
+            <div class="col">
+                <img src="images/wind.png" alt="Wind Icon">
+                <div>
+                    <p class="wind"> km/h</p>
+                    <p>Wind Speed</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="todo-section">
+        <h2>Make Informed Plans</h2>
+        <div class="todo-container">
+            <div class="input-container">
+                <input type="text" id="taskInput" placeholder="Add a task">
+                <button id="addTaskBtn">Add Task</button>
+            </div>
+            <ul id="taskList"></ul>
+        </div>
+    </div>
+
+
+    <script>
+        const apiKey = "b7c9744634e1eb8cdd4334835a4db934";
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
+        
+        const searchBox = document.querySelector(".search input");
+        const searchBtn = document.querySelector(".search button");
+        const weatherIcon = document.querySelector(".weather-icon");
+
+        async function checkWeather(city) {
+    const response = await fetch(apiUrl + city + '&appid=' + apiKey + '&units=metric');
+    const data = await response.json();
+    
+    if (response.status === 404) {
+        document.querySelector(".error").style.display = "block";
+        document.querySelector(".weather").style.display = "none";
+    } else {
+        document.querySelector(".error").style.display = "none";
+        document.querySelector(".weather").style.display = "block";
+        document.querySelector(".city").innerHTML = data.name;
+        document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°c";
+        document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+        document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
+
+        const temperature = Math.round(data.main.temp);
+
+        if (temperature > 30) {
+            weatherIcon.src = "images/clear.png";
+        } else if (temperature > 20 && temperature <= 30) {
+            weatherIcon.src = "images/clouds.png";
+        } else if (temperature > 10 && temperature <= 20) {
+            weatherIcon.src = "images/mist.png";
+        } else if (temperature > 0 && temperature <= 10) {
+            weatherIcon.src = "images/drizzle.png";
+        } else if (temperature > -10 && temperature <= 0) {
+            weatherIcon.src = "images/rain.png";
+        } else {
+            weatherIcon.src = "images/snow.png";
+        }
+    }
+}
+
+searchBtn.addEventListener("click", () => {
+    checkWeather(searchBox.value);
+});
+
+
+/*Todo Section*/
+document.getElementById('addTaskBtn').addEventListener('click', addTask);
+
+function addTask() {
+    const taskInput = document.getElementById('taskInput');
+    const taskText = taskInput.value.trim();
+
+    if (taskText !== "") {
+        const taskList = document.getElementById('taskList');
+
+        const li = document.createElement('li');
+        li.innerHTML = `
+            ${taskText}
+            <button class="remove-task">X</button>
+        `;
+        taskList.appendChild(li);
+
+        
+        taskInput.value = "";
+
+        
+        li.querySelector('.remove-task').addEventListener('click', function() {
+            li.remove();
+        });
+
+        
+        saveTasks();
+    }
+}
+
+
+function saveTasks() {
+    const taskList = document.getElementById('taskList');
+    const tasks = [];
+
+    taskList.querySelectorAll('li').forEach((li) => {
+        tasks.push(li.innerText.slice(0, -1));
+    });
+
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+
+function loadTasks() {
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    tasks.forEach(taskText => {
+        const taskList = document.getElementById('taskList');
+
+        const li = document.createElement('li');
+        li.innerHTML = `
+            ${taskText}
+            <button class="remove-task">X</button>
+        `;
+        taskList.appendChild(li);
+
+        li.querySelector('.remove-task').addEventListener('click', function() {
+            li.remove();
+            saveTasks();
+        });
+    });
+}
+
+
+loadTasks();
+
+    </script>
+
+</body>
+</html>
