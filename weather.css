@@ -217,6 +217,35 @@ body.weatherpage {
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+#taskList li.completed {
+    text-decoration: line-through;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.filters {
+    margin-bottom: 0.5rem;
+}
+
+.filterBtn {
+    padding: 8px 10px;
+    margin: 5px;
+    cursor: pointer;
+    background-color: rgb(52, 52, 52);
+    border-radius: 8px;
+    color: rgb(187, 187, 187);
+}
+
+.filterBtn:hover {
+    background-color: rgb(44, 62, 80);
+}
+
+#taskProgress {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: rgb(187, 187, 187);
 }
 
 #taskList li .remove-task {
