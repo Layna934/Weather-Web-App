@@ -16,21 +16,38 @@ body.landingpage {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    padding-left: 3%;
 }
 
 .info h1 {
-    font-size: 40px;
+    font-size: 2.5rem;
     text-align: left;
     margin-top: 70px;
+    color: #65b1fc;
 }
 
 .description {
-    font-size: 25px;
+    font-size: 1.5rem;
     width: 60%;
     margin-bottom: 100px;
     font-style: italic;
-    color: rgba(200, 200, 255, 0.788);
+    color: #01ccffc0;
     text-align: left;
+}
+
+.weatherpagelink {
+    padding: 10px 20px;
+    font-size: 1.25rem;
+    color: rgb(18, 32, 75);
+    background-color: #65b0fc67;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 1s ease, color 1s ease;
+}
+
+.weatherpagelink:hover {
+    background-color: rgb(18, 32, 75);
+    color: rgb(202, 211, 219);
 }
 
 .promo {
@@ -49,12 +66,12 @@ body.landingpage {
 }
 
 .promo h2 {
-    font-size: 36px;
+    font-size: 2rem;
     margin-bottom: 20px;
 }
 
 .promo p {
-    font-size: 20px;
+    font-size: 1.25rem;
     margin-bottom: 30px;
 }
 
@@ -78,7 +95,6 @@ body.landingpage {
     height: 100px;
     margin: 0 20px;
 }
-
 
 
 .suggestions {
@@ -211,4 +227,15 @@ body.landingpage {
 .newsletter button:hover {
     background-color: rgb(202, 211, 219);
     color: rgb(18, 32, 75);
+}
+
+@media only screen and (max-width: 768px) {
+    .team {
+        flex-direction: column;
+    }
+
+    .team img {
+        width: 120px;
+        height: 120px;
+    }
 }

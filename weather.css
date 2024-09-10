@@ -11,7 +11,7 @@ body.weatherpage {
     background: rgb(51, 51, 51);
     border-radius: 15px;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
-    width: 25%;
+    width: 80%;
     height: auto;
     padding:20px;
     margin-top: 10vh;
@@ -105,6 +105,57 @@ body.weatherpage {
     font-size: 14px;
 }
 
+/*.hourly-forescast, .weekly-forecast {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}*/
+.hourly-forecast {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.hourly-forecast .hour {
+
+    display: inline;
+    margin: 10px;
+    padding: 15px;
+    background-color: rgb(44, 62, 80);
+    border-radius: 10px;
+    border: 1px solid rgb(187, 187, 187);
+    text-align: center;
+    color: rgb(187, 187, 187);
+    width: 6rem;
+}
+.forecast-icon {
+    width: 2.2rem;
+    height: 2.2rem;
+    margin: 3px 0;
+}
+
+.weekly-forecast {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weekly-forecast .day {
+    display: inline;
+    margin: 10px;
+    padding: 15px;
+    background-color: rgb(44, 62, 80);
+    border-radius: 10px;
+    border: 1px solid rgb(187, 187, 187);
+    text-align: center;
+    color: rgb(187, 187, 187);
+    width: 120px;
+}
+
+.hour p, .day p {
+    margin: 5px 0;
+}
 
 .todo-section {
     background-color: rgb(68, 68, 68);
@@ -133,7 +184,7 @@ body.weatherpage {
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 70%;
+    width: 75%;
     background-color: rgb(52, 52, 52);
 }
 
@@ -146,6 +197,7 @@ body.weatherpage {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: 20%;
 }
 
 #addTaskBtn:hover {
@@ -178,4 +230,16 @@ body.weatherpage {
 
 #taskList li .remove-task:hover {
     background-color: darkred;
+}
+
+@media screen and (min-width: 768px) {
+    .card {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .card {
+        width: 30%;
+    }
 }
