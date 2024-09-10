@@ -182,11 +182,11 @@ p {
     color: #555;
 }
 
-p a {
+.login-container p a {
     color: #007bff;
     text-decoration: none;
 }
 
-p a:hover {
+.login-container p a:hover {
     text-decoration: underline;
 }
