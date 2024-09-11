@@ -54,6 +54,7 @@ function hourlyForecast(data) {
         const hourlyData = data.list[i];
         const time = new Date(hourlyData.dt_txt).getHours();
         const temp = hourlyData.main.temp;
+        const description = hourlyData.weather[0].description
 
         let iconSrc;
         if (temp > 30) {
@@ -76,6 +77,7 @@ function hourlyForecast(data) {
                 <p>${time}:00</p>
                 <img src="${iconSrc}" class="forecast-icon">
                 <p>${temp}°C</p>
+                <p>${description}</p>
             </div>
         `;
     }
@@ -111,6 +113,7 @@ function weeklyForecast(data) {
                 <p>${date}</p>
                 <img src="${iconSrc}" class="forecast-icon">
                 <p>${temp}°C</p>
+                <p>${description}</p>
             </div>
         `;
     }
