@@ -261,13 +261,51 @@ body.weatherpage {
     background-color: darkred;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
+    .hourly-forecast {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: 10px 0;
+    }
+
+    .hourly-forecast .hour {
+        flex: 0 0 auto;
+        margin-right: 10px;
+        width: 120px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+    .hourly-forecast {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .hourly-forecast .hour {
+        width: 45%;
+        margin: 10px;
+    }
+
     .card {
         width: 50%;
     }
 }
 
 @media screen and (min-width: 1024px) {
+    .hourly-forecast {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .hourly-forecast .hour {
+        width: 20%;
+        margin: 10px;
+    }
+
     .card {
         width: 30%;
     }

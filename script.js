@@ -40,6 +40,7 @@ async function checkWeather(city) {
 
 async function checkForecast(city) {
     const response = await fetch(forecastapiUrl + city + '&appid=' + apiKey + '&units=metric');
+    //const response = await fetch(`forecastapiUrl${city}&appid=${apiKey}&units=metric`);
     const data = await response.json();
 
     hourlyForecast(data);
